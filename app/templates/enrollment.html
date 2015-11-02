@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div class="divider" style="text-align:center; border:1px solid; padding:10px; color:black;">
+    <p>관계 등록</p>
+    <form action="" method="post" name="enrollment">
+        {{ form.hidden_tag() }}
+        <p>
+            <p>{{ form.my_phone(size=20, placeholder='내 번호') }}</p>
+            {% if user.role == 1 %}
+            <p>{{ form.partner1_phone(size=20, placeholder='부모님 번호') }}</p>
+            <p>{{ form.partner2_phone(size=20, placeholder='부모님 번호') }}</p>
+            {% endif %}
+
+            {% if user.role == 2 %}
+            <p>{{ form.partner1_phone(size=20, placeholder='자녀 번') }}</p>
+            {% endif %}
+        </p>
+        <p><input type="submit" value="등록하기"></p>
+    </form>
+{#      <a href="sms:{{ form.partner_phone.data }}">메시지 전송</a>#}
+{#                      <form action="5-1.html" method="post">#}
+{#                           <div class="foryou" id="login">#}
+{#                </div>#}
+{#                        </form>#}
+
+
+    </div>
+</body>
+</html>
